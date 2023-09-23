@@ -10,9 +10,14 @@ public class TripleLetterThread extends Thread {
     @Override
     public void run() {
         for (String text : texts) {
-            if (text.equals("aaa") || (text.equals("bbb") || (text.equals("ccc")))) {
-                Main.threeDigitCounter.getAndIncrement();
+            boolean same = true;
+            for (int i = 0; i < text.length() - 1; i++) {
+                if (text.charAt(i) != text.charAt(0)) {
+                    same = false;
+                    break;
+                }
             }
+            if (same) Main.checkLength(text);
         }
     }
 }

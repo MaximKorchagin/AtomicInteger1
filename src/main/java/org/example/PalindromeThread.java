@@ -16,9 +16,7 @@ public class PalindromeThread extends Thread {
             for (int j = (text.length() - 1); j >= 0; --j) {
                 reverseString = reverseString + text.charAt(j);
             }
-            if (text.equals(reverseString)) {
-                Main.fourDigitCounter.getAndIncrement();
-            }
+            if (text.equals(reverseString)) Main.checkLength(text);
         }
     }
 }

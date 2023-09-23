@@ -18,11 +18,13 @@ public class Main {
         }
         Thread thread = new PalindromeThread(texts);
         thread.start();
+        thread.join();
         Thread thread2 = new TripleLetterThread(texts);
         thread2.start();
+        thread2.join();
         Thread thread3 = new AscendingLettersThread(texts);
         thread3.start();
-        Thread.sleep(2000);
+        thread3.join();
         System.out.println("Krasivie slova s dlinoi 3: " + threeDigitCounter);
         System.out.println("Krasivie slova s dlinoi 4: " + fourDigitCounter);
         System.out.println("Krasivie slova s dlinoi 5: " + fiveDigitCounter);
@@ -34,5 +36,14 @@ public class Main {
             text.append(letters.charAt(random.nextInt(letters.length())));
         }
         return text.toString();
+    }
+    public static void checkLength(String text) {
+            if (text.length() == 3) {
+                Main.threeDigitCounter.getAndIncrement();
+            } else if (text.length() == 4) {
+                Main.fourDigitCounter.getAndIncrement();
+            } else if (text.length() == 5) {
+                Main.fiveDigitCounter.getAndIncrement();
+            }
     }
 }

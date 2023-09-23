@@ -18,7 +18,7 @@ public class AscendingLettersThread extends Thread {
                     break;
                 }
             }
-            if (sorted) Main.fiveDigitCounter.getAndIncrement();
+            if (sorted) Main.checkLength(text);
         }
 
     }
