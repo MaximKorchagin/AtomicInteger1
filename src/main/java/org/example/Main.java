@@ -16,7 +16,6 @@ public class Main {
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
-        //System.out.println(Arrays.toString(texts));
         Thread thread = new PalindromeThread(texts);
         thread.start();
         Thread thread2 = new TripleLetterThread(texts);
@@ -24,9 +23,9 @@ public class Main {
         Thread thread3 = new AscendingLettersThread(texts);
         thread3.start();
         Thread.sleep(2000);
-        System.out.println(fourDigitCounter);
-        System.out.println(threeDigitCounter);
-        System.out.println(fiveDigitCounter);
+        System.out.println("Krasivie slova s dlinoi 3: " + threeDigitCounter);
+        System.out.println("Krasivie slova s dlinoi 4: " + fourDigitCounter);
+        System.out.println("Krasivie slova s dlinoi 5: " + fiveDigitCounter);
     }
     public static String generateText(String letters, int length) {
         Random random = new Random();
