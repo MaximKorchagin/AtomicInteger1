@@ -16,14 +16,16 @@ public class Main {
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
+
         Thread thread = new PalindromeThread(texts);
         thread.start();
-        thread.join();
         Thread thread2 = new TripleLetterThread(texts);
         thread2.start();
-        thread2.join();
         Thread thread3 = new AscendingLettersThread(texts);
         thread3.start();
+
+        thread.join();
+        thread2.join();
         thread3.join();
         System.out.println("Krasivie slova s dlinoi 3: " + threeDigitCounter);
         System.out.println("Krasivie slova s dlinoi 4: " + fourDigitCounter);
